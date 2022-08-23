@@ -1,0 +1,217 @@
+/* >>>>>> Login Panel <<<<<< */
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(255, 255, 255);
+}
+
+.login-panel {
+    height: 500px;
+    width: 350px;
+    background-color: rgba(115, 222, 227, 0.3);
+    box-shadow: rgb(37, 39, 40);
+    border-radius: 5px;
+    box-shadow: 0px 0px 30px rgb(0, 0, 0);
+}
+
+#akmuLogo {
+    width: 350px;
+}
+
+.log-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#top-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#loginAlert {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+    color: rgb(9, 243, 36);
+}
+
+/* .admin {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    color: rgb(17, 243, 156);
+    border-bottom: 5px solid transparent;
+    border-image: linear-gradient(0.25turn, rgb(242, 120, 5), rgb(230, 223, 3), rgb(117, 210, 18), rgb(242, 120, 5));
+    border-image-slice: 1;
+    margin: 5px;
+}
+
+.admin:hover {
+    transform: scale(1.2);
+    background-image: linear-gradient(0.25turn, rgb(10, 136, 239), rgb(175, 5, 242));
+    opacity: 1;
+}
+
+.employee {
+    background-color: transparent;
+    border: none;
+    color: rgb(17, 243, 156);
+    font-size: 25px;
+    border-bottom: 5px solid transparent;
+    border-image: linear-gradient(0.25turn, rgb(251, 34, 255), rgb(112, 17, 221), rgb(12, 163, 238), rgb(251, 34, 255));
+    border-image-slice: 1;
+    margin: 5px;
+}
+.employee:hover {
+    transform: scale(1.2);
+    background-image: linear-gradient(0.25turn, rgb(10, 136, 239), rgb(175, 5, 242));
+    opacity: 1;
+} */
+
+.input {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.input input {
+    border: none;
+    width: 80%;
+    border-bottom: 2px solid white;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: transparent;
+    color: white;
+}
+
+#loginError {
+    margin-top: 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    display: none;
+}
+
+.login {
+    padding: 10px;
+    width: 150px !important;
+    border-radius: 20px;
+    border-style: none;
+    color: rgb(0, 0, 0) !important;
+    font-weight: 600;
+    /* background-image: linear-gradient(to right, #c21500 0%, #ffc500 51%, #c21500 100%); */
+    background-image: linear-gradient(to right, #A770EF 0%, #CF8BF3 51%, #A770EF 100%);
+    display: block;
+    cursor: pointer;
+}
+
+.login:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+    transform: scale(1.2);
+    background-image: linear-gradient(0.25turn, rgb(10, 136, 239), rgb(175, 5, 242));
+}
+
+/* .login:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+} */
+
+.forgetPassword {
+    display: flex;
+    justify-content: center;
+}
+
+#forget-btn {
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: transparent;
+    border-style: none;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+#forget-btn:hover {
+    transform: scale(1.2);
+    color: rgb(9, 243, 36);
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-family: 'Rubik Moonrocks', cursive;
+}
+
+#logo {
+    color: aqua;
+    text-align: center;
+    padding-top: 0%;
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 50px;
+    cursor: cell;
+}
+
+#logo:hover {
+    transform: scale(1.5);
+    transition-duration: 1s;
+    color: rgb(255, 255, 255);
+}
+
+
+/* >>>>>> Admin Panel <<<<<< */
+
+.container {
+    display: grid;
+    grid-template-areas:
+        'header header header header header header'
+        'menu main main main right right'
+        'menu footer footer footer footer footer';
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+
+    background-color: #3e2723;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.container>div {
+    background-color: #80cbc4;
+    border: 1px solid #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+.item1 {
+    grid-area: header;
+}
+
+.item2 {
+    grid-area: menu;
+}
+
+.item3 {
+    grid-area: main;
+}
+
+.item4 {
+    grid-area: right;
+}
+
+.item5 {
+    grid-area: footer;
+}
