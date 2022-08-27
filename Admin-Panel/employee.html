@@ -138,13 +138,50 @@
 
     <!-- Main Content -->
     <main class="shadow p-3 mb-5 bg-body rounded h-100">
+        <!-- Using Modal for the Add Category -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="add-department" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add a New Department</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Department Name: </span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Total User: </span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-info">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Using Modal for the Add Category -->
 
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 fw-bold fs-2 pt-2" style="font-family: var(--sidebar-font);">
                     <ul class="d-flex justify-content-between align-items-center list-unstyled fs-3 fw-bold">
                         <li>#Departments</li>
-                        <li><button type="button" class="btn btn-dark">Add Dept.</button></li>
+                        <li>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                data-bs-target="#add-department">
+                                Add Dept.
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </div>

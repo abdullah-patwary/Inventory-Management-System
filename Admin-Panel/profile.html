@@ -139,13 +139,131 @@
     <!-- Main Content -->
     <main class="shadow p-3 mb-5 bg-body rounded h-auto">
 
+        <!-- Pop-up Modal -->
+
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="edit-admin-profile" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg bg-info">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!--︾ Update profile info  ︾-->
+                    <form>
+                        <div class="modal-body">
+
+                            <!-- Change Admin Profile -->
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupFile01">Change Profile</label>
+                                <input type="file" class="form-control" id="inputGroupFile01">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Institute</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <!-- <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button> -->
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">E-mail ID</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Telephone</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Mobile</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Website</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">ERP Website</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <!-- Update Social Media -->
+                            <div>
+                                <hr class="mt-3 mb-3" style="height: 5px; width: 100%;" />
+                                <h4>Social Media</h4>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Facebook Page</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Linkedin</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Telegram</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Twitter</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-dark">Update Info</button>
+                        </div>
+                    </form>
+                    <!--︽ Update Profile info ︽-->
+                </div>
+            </div>
+        </div>
+
+        <!-- Pop-up Modal -->
+
         <div class="container-fluid">
 
             <div class="row">
                 <div class="col-md-12 fw-bold fs-2 pt-2" style="font-family: var(--sidebar-font);">
                     <ul class="d-flex justify-content-between align-items-center list-unstyled fs-3 fw-bold">
                         <li>Admin Profile</li>
-                        <li><button type="button" class="btn btn-dark">Edit</button></li>
+                        <li>
+                            <button type="button" class="btn btn-dark fs-5" data-bs-toggle="modal"
+                                data-bs-target="#edit-admin-profile" style="border-radius: 5px;">
+                                Edit
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -158,11 +276,20 @@
                     <hr class="mt-3 mb-3" style="height: 5px; width: 100%;" />
                 </div>
                 <div class="table-responsive">
-                    <table class="table mt-5 align-middle table-warning table-striped fw-bold fs-2 table-bordered" style="border-collapse: separate; border-spacing: 5 10;">
+                    <table class="table mt-5 align-middle table-warning table-striped fw-bold fs-2 table-bordered"
+                        style="border-collapse: separate; border-spacing: 5 10;">
                         <tbody class="table-group-divider">
                             <tr>
                                 <td class="col-sm-3 text-center">Institute</td>
                                 <td>Anwer Khan Modern University</td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-3 text-center">User ID</td>
+                                <td>admin@akmu</td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-3 text-center">Password</td>
+                                <td>@#Admin</td>
                             </tr>
                             <tr>
                                 <td class="col-sm-3 text-center">E-mail ID</td>
@@ -178,11 +305,13 @@
                             </tr>
                             <tr>
                                 <td class="col-sm-3 text-center">Website</td>
-                                <td><a href="https://akmu.edu.bd" style="text-decoration: none;">https://akmu.edu.bd</a></td>
+                                <td><a href="https://akmu.edu.bd" style="text-decoration: none;">https://akmu.edu.bd</a>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="col-sm-3 text-center">ERP Website</td>
-                                <td><a href="http://akmu.pipilikasoft.com" style="text-decoration: none;">http://akmu.pipilikasoft.com</a></td>
+                                <td><a href="http://akmu.pipilikasoft.com"
+                                        style="text-decoration: none;">http://akmu.pipilikasoft.com</a></td>
                             </tr>
                             <tr>
                                 <td class="col-sm-3 text-center">Address</td>
@@ -192,20 +321,26 @@
                             </tr>
                         </tbody>
                     </table>
-                    <h3 class="fw-bold pt-2 pb-2">#Social Link</h3>
-                    <table class="table table-responsive align-middle table-warning table-striped fw-bold fs-2 table-bordered" style="border-collapse: separate; border-spacing: 5 10;">
+                    <h3 class="fw-bold p-2 bg-secondary" style="width: max-content; border-radius: 5px;">Social Media
+                    </h3>
+                    <table
+                        class="table table-responsive align-middle table-warning table-striped fw-bold fs-2 table-bordered"
+                        style="border-collapse: separate; border-spacing: 5 10;">
                         <tbody class="table-group-divider">
                             <tr>
                                 <td class="col-sm-3 text-center">Facebook Page</td>
-                                <td><a href="https://www.facebook.com/akmuniversity.edu.bd" style="text-decoration: none;">www.facebook.com/akmuniversity.edu.bd</a></td>
+                                <td><a href="https://www.facebook.com/akmuniversity.edu.bd"
+                                        style="text-decoration: none;">www.facebook.com/akmuniversity.edu.bd</a></td>
                             </tr>
                             <tr>
                                 <td class="col-sm-3 text-center">Linkedin</td>
-                                <td><a href="https://www.linkedin.com/company/akmu/" style="text-decoration: none;">www.linkedin.com/company/akmu</a></td>
+                                <td><a href="https://www.linkedin.com/company/akmu/"
+                                        style="text-decoration: none;">www.linkedin.com/company/akmu</a></td>
                             </tr>
                             <tr>
                                 <td class="col-sm-3 text-center">Telegram</td>
-                                <td><a href="https://t.me/+fK3n1jKb4IViNjU9" style="text-decoration: none;">https://t.me/+fK3n1jKb4IViNjU9</a></td>
+                                <td><a href="https://t.me/+fK3n1jKb4IViNjU9"
+                                        style="text-decoration: none;">https://t.me/+fK3n1jKb4IViNjU9</a></td>
                             </tr>
                             <tr>
                                 <td class="col-sm-3 text-center">Twitter</td>
@@ -216,12 +351,12 @@
                 </div>
             </div>
 
-
         </div>
 
     </main>
     <!-- Main Content -->
 
+    <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js.map"></script>
     <script src="../js/dataTables.bootstrap5.min.js"></script>
