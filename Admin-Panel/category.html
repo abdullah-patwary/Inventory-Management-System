@@ -126,7 +126,7 @@
                         </a>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="../login.html" id="logout">
+                        <a href="../index.html" id="logout">
                             <i class="bi bi-box-arrow-left"></i><span>Logout</span></a>
                     </li>
                 </div>
@@ -155,15 +155,10 @@
                             <input type="text" class="form-control" aria-label="Sizing example input"
                                 aria-describedby="inputGroup-sizing-default">
                         </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Total Record: </span>
-                            <input type="text" class="form-control" aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default">
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-info">Add</button>
+                        <button type="button" class="btn btn-info" id="add-category" onclick="addNew()">Add</button>
                     </div>
                 </div>
             </div>
@@ -178,76 +173,76 @@
                         <li>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                                data-bs-target="#add-category">
+                                data-bs-target="#add-category"">
                                 Add Category
                             </button>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color: black;">
-                            <div class="card-header font-style">Classroom</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Total Record</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color: black;">
-                            <div class="card-header font-style">Teachers Room</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Total Record</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color: black;">
-                            <div class="card-header font-style">Admission Chamber</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Total Record</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color: black;">
-                            <div class="card-header font-style">Staff Room</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Total Record</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color: black;">
-                            <div class="card-header font-style">Store Room</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Total Record</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color: black;">
-                            <div class="card-header font-style">Washroom</div>
-                            <div class="card-body">
-                                <h5 class="card-title">Total Record</h5>
-                            </div>
-                        </a>
-                    </div>
+            <div class="row" id="create-card">
+                                <div class="col-md-3 col-sm-6 mb-3" id="child-div">
+                                    <div class="card bg-info mb-3 h-100">
+                                        <a href="#" style="text-decoration: none; color: black;">
+                                            <div class="card-header font-style">Classroom</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Total Record</h5>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <div class="card bg-info mb-3 h-100">
+                                        <a href="#" style="text-decoration: none; color: black;">
+                                            <div class="card-header font-style">Teachers Room</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Total Record</h5>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <div class="card bg-info mb-3 h-100">
+                                        <a href="#" style="text-decoration: none; color: black;">
+                                            <div class="card-header font-style">Admission Chamber</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Total Record</h5>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <div class="card bg-info mb-3 h-100">
+                                        <a href="#" style="text-decoration: none; color: black;">
+                                            <div class="card-header font-style">Staff Room</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Total Record</h5>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <div class="card bg-info mb-3 h-100">
+                                        <a href="#" style="text-decoration: none; color: black;">
+                                            <div class="card-header font-style">Store Room</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Total Record</h5>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 mb-3">
+                                    <div class="card bg-info mb-3 h-100">
+                                        <a href="#" style="text-decoration: none; color: black;">
+                                            <div class="card-header font-style">Washroom</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Total Record</h5>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
                 </div>
             </div>
-        </div>
         </div>
 
     </main>
@@ -256,9 +251,10 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js.map"></script>
-    <script src="../js/dataTables.bootstrap5.min.js"></script>
+    <!-- <script src="../js/dataTables.bootstrap5.min.js"></script> -->
     <script src="../js/jquery-3.5.1.js"></script>
-    <script src="../js/jquery.dataTables.min.js"></script>
+    <!-- <script src="../js/jquery.dataTables.min.js"></script> -->
+    <script src="../CSS/bootstrap/js/bootstrap.min.js"></script>
     <script src="../js/script.js"></script>
 </body>
 
