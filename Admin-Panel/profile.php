@@ -22,21 +22,21 @@
 </head>
 
 <body>
+
+
     <!-------------- Navbar  ---------------->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
         <div class="container-fluid">
             <!-- offcanvas Trigger -->
-            <button class="navbar-toggler sidebar-toggler me-3" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+            <button class="navbar-toggler sidebar-toggler me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 <span class="navbar-toggler-icon" data-bs-target="#offcanvasExample"></span>
             </button>
             <!-- offcanvas Trigger -->
-            <a class="navbar-brand me-auto name-logo" href="#"><img src="../images/name&logo.png" alt=""></a>
-            <a href="admin-dashboard.html" class="top-name">AKMU</a>
+            <a class="navbar-brand me-auto name-logo" href="admin-dashboard.php"><img src="../images/name&logo.png" alt=""></a>
+            <a href="admin-dashboard.php" class="top-name">AKMU</a>
             <div class="noti-icon">
                 <div class="btn-group">
-                    <button class="btn" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                        aria-expanded="false">
+                    <button class="btn" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                         <a href="#">
                             <i class='bx bxs-bell bx-flashing bx-flip-horizontal ms-5 bell' style='color:#fff'></i>
                         </a>
@@ -47,9 +47,7 @@
                         <li><a class="dropdown-item" href="#">Request for...</a></li>
                     </ul>
                 </div>
-                <button class="navbar-toggler right-toggle" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler right-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
@@ -57,8 +55,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <form class="d-flex ms-auto">
                     <div class="input-group my-2 my-lg-0">
-                        <input type="text" class="form-control  font-style" placeholder="Search..."
-                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input type="text" class="form-control  font-style" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn bg-primary" type="button" id="button-addon2">
                             <i class="bi bi-search"></i>
                         </button>
@@ -67,17 +64,16 @@
 
                 <ul class="navbar-nav mb-lg-0 bg-dark pb-1">
                     <li class="nav-item dropdown pb-3">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-fill"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../login.html">Logout</a></li>
+                            <li><a class="dropdown-item" href="../phpphp">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -89,44 +85,39 @@
 
     <!-- Sidebar Using Offcanvas -->
 
-    <div class="offcanvas offcanvas-start sidebar-nav bg-dark text-white" tabindex="-1" id="offcanvasExample"
-        aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas offcanvas-start sidebar-nav bg-dark text-white" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-body p-0">
             <nav class="navbar-dark">
                 <div class="items d-flex flex-column">
                     <li class="pt-4 pb-4">
-                        <a href="admin-dashboard.html" id="dashboard">
+                        <a href="admin-dashboard.php" id="dashboard">
                             <i class="bi bi-box"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="category.html" id="category">
+                        <a href="category.php" id="category">
                             <i class="bi bi-diagram-3-fill"></i><span>Category</span></a>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="employee.html" id="employee">
+                        <a href="employee.php" id="employee">
                             <i class="bi bi-people-fill"></i><span>Employee</span></a>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a class="sidebar-link" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                            aria-expanded="false" aria-controls="collapseExample"><i
-                                class="bi bi-play-fill right-icon"></i><span>Stock</span>
+                        <a class="sidebar-link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-play-fill right-icon"></i><span>Stock</span>
                         </a>
                         <div class="collapse stock-link px-3" id="collapseExample">
-                            <a href="stock-in.html" class="pt-3 pb-1"><i
-                                    class="bi bi-play-fill"></i><span>Stock-in</span></a>
-                            <a href="stock-out.html" class="pt-2"><i
-                                    class="bi bi-play-fill"></i><span>Stock-out</span></a>
+                            <a href="stock-in.php" class="pt-3 pb-1"><i class="bi bi-play-fill"></i><span>Stock-in</span></a>
+                            <a href="stock-out.php" class="pt-2"><i class="bi bi-play-fill"></i><span>Stock-out</span></a>
                         </div>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="profile.html">
+                        <a href="profile.php">
                             <i class="bi bi-person-square"></i><span>Profile</span>
                         </a>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="../index.html" id="logout">
+                        <a href="../index.php" id="logout">
                             <i class="bi bi-box-arrow-left"></i><span>Logout</span></a>
                     </li>
                 </div>
@@ -139,13 +130,18 @@
     <!-- Main Content -->
     <main class="shadow p-3 mb-5 bg-body rounded h-auto">
 
+        <!-- update profile info from the database -->
+
+        
+
+        <!-- update profile info from the database -->
+
         <!-- Pop-up Modal -->
 
         <!-- Button trigger modal -->
 
         <!-- Modal -->
-        <div class="modal fade" id="edit-admin-profile" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="edit-admin-profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg bg-info">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -154,7 +150,7 @@
                     </div>
 
                     <!--︾ Update profile info  ︾-->
-                    <form action="../database/admin-profile.php" method="post">
+                    <form action="" method="POST">
                         <div class="modal-body">
 
                             <!-- Change Admin Profile -->
@@ -164,13 +160,11 @@
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Institute</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default" name="institute">
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="institute">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">User ID</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp" name="id">
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="id">
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                                 </div>
                             </div>
@@ -180,33 +174,27 @@
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">E-mail ID</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default" name="email">
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="email">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Telephone</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default" name="telephone">
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="telephone">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Mobile</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default" name="mobile">
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="mobile">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Website</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default" name="website">
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="website">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">ERP Website</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default" name="erp">
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="erp">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default" name="address">
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="address">
                             </div>
                             <!-- Update Social Media -->
                             <div>
@@ -215,29 +203,25 @@
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Facebook Page</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default" name="facebook">
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="facebook">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Linkedin</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default" name="linkedin">
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="linkedin">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Telegram</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default" name="telegram">
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="telegram">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Twitter</span>
-                                <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default" name="twitter">
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="twitter">
                             </div>
 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                            <button type="button" name="update" class="btn btn-dark">Update Info</button>
+                            <button type="submit" name="update" class="btn btn-dark">Update Info</button>
                         </div>
                     </form>
                     <!--︽ Update Profile info ︽-->
@@ -254,8 +238,7 @@
                     <ul class="d-flex justify-content-between align-items-center list-unstyled fs-3 fw-bold">
                         <li>Admin Profile</li>
                         <li>
-                            <button type="button" class="btn btn-dark fs-5" data-bs-toggle="modal"
-                                data-bs-target="#edit-admin-profile" style="border-radius: 5px;">
+                            <button type="button" class="btn btn-dark fs-5" data-bs-toggle="modal" data-bs-target="#edit-admin-profile" style="border-radius: 5px;">
                                 Edit
                             </button>
                         </li>
@@ -271,8 +254,7 @@
                     <hr class="mt-3 mb-3" style="height: 5px; width: 100%;" />
                 </div>
                 <div class="table-responsive">
-                    <table class="table mt-5 align-middle table-warning table-striped fw-bold fs-2 table-bordered"
-                        style="border-collapse: separate; border-spacing: 5 10;">
+                    <table class="table mt-5 align-middle table-warning table-striped fw-bold fs-2 table-bordered" style="border-collapse: separate; border-spacing: 5 10;">
                         <tbody class="table-group-divider">
                             <tr>
                                 <td class="col-sm-3 text-center">Institute</td>
@@ -305,8 +287,7 @@
                             </tr>
                             <tr>
                                 <td class="col-sm-3 text-center">ERP Website</td>
-                                <td><a href="http://akmu.pipilikasoft.com"
-                                        style="text-decoration: none;">http://akmu.pipilikasoft.com</a></td>
+                                <td><a href="http://akmu.pipilikasoft.com" style="text-decoration: none;">http://akmu.pipilikasoft.com</a></td>
                             </tr>
                             <tr>
                                 <td class="col-sm-3 text-center">Address</td>
@@ -318,24 +299,19 @@
                     </table>
                     <h3 class="fw-bold p-2 bg-secondary" style="width: max-content; border-radius: 5px;">Social Media
                     </h3>
-                    <table
-                        class="table table-responsive align-middle table-warning table-striped fw-bold fs-2 table-bordered"
-                        style="border-collapse: separate; border-spacing: 5 10;">
+                    <table class="table table-responsive align-middle table-warning table-striped fw-bold fs-2 table-bordered" style="border-collapse: separate; border-spacing: 5 10;">
                         <tbody class="table-group-divider">
                             <tr>
                                 <td class="col-sm-3 text-center">Facebook Page</td>
-                                <td><a href="https://www.facebook.com/akmuniversity.edu.bd"
-                                        style="text-decoration: none;">www.facebook.com/akmuniversity.edu.bd</a></td>
+                                <td><a href="https://www.facebook.com/akmuniversity.edu.bd" style="text-decoration: none;">www.facebook.com/akmuniversity.edu.bd</a></td>
                             </tr>
                             <tr>
                                 <td class="col-sm-3 text-center">Linkedin</td>
-                                <td><a href="https://www.linkedin.com/company/akmu/"
-                                        style="text-decoration: none;">www.linkedin.com/company/akmu</a></td>
+                                <td><a href="https://www.linkedin.com/company/akmu/" style="text-decoration: none;">www.linkedin.com/company/akmu</a></td>
                             </tr>
                             <tr>
                                 <td class="col-sm-3 text-center">Telegram</td>
-                                <td><a href="https://t.me/+fK3n1jKb4IViNjU9"
-                                        style="text-decoration: none;">https://t.me/+fK3n1jKb4IViNjU9</a></td>
+                                <td><a href="https://t.me/+fK3n1jKb4IViNjU9" style="text-decoration: none;">https://t.me/+fK3n1jKb4IViNjU9</a></td>
                             </tr>
                             <tr>
                                 <td class="col-sm-3 text-center">Twitter</td>

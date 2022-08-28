@@ -31,8 +31,8 @@
                 <span class="navbar-toggler-icon" data-bs-target="#offcanvasExample"></span>
             </button>
             <!-- offcanvas Trigger -->
-            <a class="navbar-brand me-auto name-logo" href="#"><img src="../images/name&logo.png" alt=""></a>
-            <a href="admin-dashboard.html" class="top-name">AKMU</a>
+            <a class="navbar-brand me-auto name-logo" href="profile.php"><img src="../images/name&logo.png" alt=""></a>
+            <a href="profile.php" class="top-name">AKMU</a>
             <div class="noti-icon">
                 <div class="btn-group">
                     <button class="btn" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"
@@ -72,12 +72,11 @@
                             <i class="bi bi-person-fill"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../login.html">Logout</a></li>
+                            <li><a class="dropdown-item" href="../index.php">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -95,39 +94,19 @@
             <nav class="navbar-dark">
                 <div class="items d-flex flex-column">
                     <li class="pt-4 pb-4">
-                        <a href="admin-dashboard.html" id="dashboard">
-                            <i class="bi bi-box"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="pt-4 pb-4">
-                        <a href="category.html" id="category">
-                            <i class="bi bi-diagram-3-fill"></i><span>Category</span></a>
-                    </li>
-                    <li class="pt-4 pb-4">
-                        <a href="employee.html" id="employee">
-                            <i class="bi bi-people-fill"></i><span>Employee</span></a>
-                    </li>
-                    <li class="pt-4 pb-4">
-                        <a class="sidebar-link" data-bs-toggle="collapse" href="#collapseExample" role="button"
-                            aria-expanded="false" aria-controls="collapseExample"><i
-                                class="bi bi-play-fill right-icon"></i><span>Stock</span>
-                        </a>
-                        <div class="collapse stock-link px-3" id="collapseExample">
-                            <a href="stock-in.html" class="pt-3 pb-1"><i
-                                    class="bi bi-play-fill"></i><span>Stock-in</span></a>
-                            <a href="stock-out.html" class="pt-2"><i
-                                    class="bi bi-play-fill"></i><span>Stock-out</span></a>
-                        </div>
-                    </li>
-                    <li class="pt-4 pb-4">
                         <a href="profile.html">
                             <i class="bi bi-person-square"></i><span>Profile</span>
                         </a>
                     </li>
                     <li class="pt-4 pb-4">
+                        <a href="history.html">
+                            <i class='bx bx-history'></i><span>History</span>
+                        </a>
+                    </li>
+                    <li class="pt-4 pb-4">
                         <a href="../index.html" id="logout">
-                            <i class="bi bi-box-arrow-left"></i><span>Logout</span></a>
+                            <i class="bi bi-box-arrow-left"></i><span>Logout</span>
+                        </a>
                     </li>
                 </div>
             </nav>
@@ -137,15 +116,68 @@
     <!-- Sidebar Using Offcanvas -->
 
     <!-- Main Content -->
-    <main class="shadow p-3 mb-5 bg-body rounded h-100">
+    <main class="shadow p-3 mb-5 bg-body rounded h-auto">
+
+        <!-- Pop-up Modal -->
+
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="request" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!--︾ Update profile info  ︾-->
+                    <form>
+                        <div class="modal-body">
+
+                            <div class="input-group mb-3">
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">Marker</option>
+                                    <option value="2">Duster</option>
+                                    <option value="3">Paper</option>
+                                    <option value="4">Chair</option>
+                                    <option value="5">Table</option>
+                                    <option value="6">Light</option>
+                                    <option value="7">Fan</option>
+                                    <option value="8">Tissue Paper</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Quantity</span>
+                                <input type="text" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-default">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-dark">Send</button>
+                        </div>
+                    </form>
+                    <!--︽ Send Request for an Item ︽-->
+                </div>
+            </div>
+        </div>
+
+        <!-- Pop-up Modal -->
 
         <div class="container-fluid">
 
             <div class="row">
-                <div class="col-md-12 fw-bold fs-3 pt-2" style="font-family: var(--sidebar-font);">
+                <div class="col-md-12 fw-bold fs-2 pt-2" style="font-family: var(--sidebar-font);">
                     <ul class="d-flex justify-content-between align-items-center list-unstyled fs-3 fw-bold">
-                        <li>#Available Materials</li>
-                        <li><button type="button" class="btn btn-dark">Add New</button></li>
+                        <li>History</li>
+                        <li>
+                            <button type="button" class="btn btn-dark fs-5" data-bs-toggle="modal"
+                                data-bs-target="#request" style="border-radius: 5px;">
+                                Request for
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </div>

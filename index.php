@@ -39,7 +39,7 @@
                     <button class="employee"><b>Employee</b></button>
                 </div> -->
             <h3 id="loginAlert">Login to IMS of AKMU</h3>
-            <form name="login" autocomplete="off" action="Admin-Panel/admin-dashboard.html" method="post"
+            <form name="login" autocomplete="off" action="Admin-Panel/admin-dashboard.php" method="post"
                 onsubmit="return loginCheck()">
                 <div class="input">
                     <input type="email" name="email" placeholder="username" id="user-name" value="" required>

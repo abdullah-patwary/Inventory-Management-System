@@ -6,6 +6,8 @@
     --sidebar-font: 'Fredoka One', cursive;
     --mainleft-margin: 300px;
     --maintop-margin: 60px;
+    --profile-height: 100px;
+    --profile-width: 100px;
 }
 
 .navbar {
@@ -123,6 +125,7 @@ main {
 }
 
 /* Main Content */
+
 
 @media (min-width:992px) {
     body {

@@ -31,8 +31,8 @@
                 <span class="navbar-toggler-icon" data-bs-target="#offcanvasExample"></span>
             </button>
             <!-- offcanvas Trigger -->
-            <a class="navbar-brand me-auto name-logo" href="#"><img src="../images/name&logo.png" alt=""></a>
-            <a href="admin-dashboard.html" class="top-name">AKMU</a>
+            <a class="navbar-brand me-auto name-logo" href="admin-dashboard.php"><img src="../images/name&logo.png" alt=""></a>
+            <a href="admin-dashboard.php" class="top-name">AKMU</a>
             <div class="noti-icon">
                 <div class="btn-group">
                     <button class="btn" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"
@@ -72,12 +72,12 @@
                             <i class="bi bi-person-fill"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../login.html">Logout</a></li>
+                            <li><a class="dropdown-item" href="../login.php">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -95,17 +95,17 @@
             <nav class="navbar-dark">
                 <div class="items d-flex flex-column">
                     <li class="pt-4 pb-4">
-                        <a href="admin-dashboard.html" id="dashboard">
+                        <a href="admin-dashboard.php" id="dashboard">
                             <i class="bi bi-box"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="category.html" id="category">
+                        <a href="category.php" id="category">
                             <i class="bi bi-diagram-3-fill"></i><span>Category</span></a>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="employee.html" id="employee">
+                        <a href="employee.php" id="employee">
                             <i class="bi bi-people-fill"></i><span>Employee</span></a>
                     </li>
                     <li class="pt-4 pb-4">
@@ -114,19 +114,19 @@
                                 class="bi bi-play-fill right-icon"></i><span>Stock</span>
                         </a>
                         <div class="collapse stock-link px-3" id="collapseExample">
-                            <a href="stock-in.html" class="pt-3 pb-1"><i
+                            <a href="stock-in.php" class="pt-3 pb-1"><i
                                     class="bi bi-play-fill"></i><span>Stock-in</span></a>
-                            <a href="stock-out.html" class="pt-2"><i
+                            <a href="stock-out.php" class="pt-2"><i
                                     class="bi bi-play-fill"></i><span>Stock-out</span></a>
                         </div>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="profile.html">
+                        <a href="profile.php">
                             <i class="bi bi-person-square"></i><span>Profile</span>
                         </a>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="../index.html" id="logout">
+                        <a href="../index.php" id="logout">
                             <i class="bi bi-box-arrow-left"></i><span>Logout</span></a>
                     </li>
                 </div>

@@ -18,6 +18,12 @@
     <link rel="stylesheet" href="../CSS/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../CSS/admin.css">
+    <style>
+        .user-profile{
+            height: 200px;
+            width: 200px;
+        }
+    </style>
 
 </head>
 
@@ -76,7 +82,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../index.html">Logout</a></li>
+                            <li><a class="dropdown-item" href="../index.php">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -213,7 +219,7 @@
 
             <div class="row">
                 <div class="profile mx-auto" style="max-width: 200px;">
-                    <img src="../images/Akmu logo.jpg" alt="">
+                    <img class="user-profile" src="../images/userprofile.png" alt="">
                 </div>
                 <div>
                     <hr class="mt-3 mb-3" style="height: 5px; width: 100%;" />

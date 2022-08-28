@@ -31,8 +31,8 @@
                 <span class="navbar-toggler-icon" data-bs-target="#offcanvasExample"></span>
             </button>
             <!-- offcanvas Trigger -->
-            <a class="navbar-brand me-auto name-logo" href="#"><img src="../images/name&logo.png" alt=""></a>
-            <a href="admin-dashboard.html" class="top-name">AKMU</a>
+            <a class="navbar-brand me-auto name-logo" href="admin-dashboard.php"><img src="../images/name&logo.png" alt=""></a>
+            <a href="admin-dashboard.php" class="top-name">AKMU</a>
             <div class="noti-icon">
                 <div class="btn-group">
                     <button class="btn" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"
@@ -72,12 +72,12 @@
                             <i class="bi bi-person-fill"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../login.html">Logout</a></li>
+                            <li><a class="dropdown-item" href="../index.php">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -95,17 +95,17 @@
             <nav class="navbar-dark">
                 <div class="items d-flex flex-column">
                     <li class="pt-4 pb-4">
-                        <a href="admin-dashboard.html" id="dashboard">
+                        <a href="admin-dashboard.php" id="dashboard">
                             <i class="bi bi-box"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="category.html" id="category">
+                        <a href="category.php" id="category">
                             <i class="bi bi-diagram-3-fill"></i><span>Category</span></a>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="employee.html" id="employee">
+                        <a href="employee.php" id="employee">
                             <i class="bi bi-people-fill"></i><span>Employee</span></a>
                     </li>
                     <li class="pt-4 pb-4">
@@ -114,19 +114,19 @@
                                 class="bi bi-play-fill right-icon"></i><span>Stock</span>
                         </a>
                         <div class="collapse stock-link px-3" id="collapseExample">
-                            <a href="stock-in.html" class="pt-3 pb-1"><i
+                            <a href="stock-in.php" class="pt-3 pb-1"><i
                                     class="bi bi-play-fill"></i><span>Stock-in</span></a>
-                            <a href="stock-out.html" class="pt-2"><i
+                            <a href="stock-out.php" class="pt-2"><i
                                     class="bi bi-play-fill"></i><span>Stock-out</span></a>
                         </div>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="profile.html">
+                        <a href="profile.php">
                             <i class="bi bi-person-square"></i><span>Profile</span>
                         </a>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="../index.html" id="logout">
+                        <a href="../index.php" id="logout">
                             <i class="bi bi-box-arrow-left"></i><span>Logout</span></a>
                     </li>
                 </div>
@@ -137,63 +137,22 @@
     <!-- Sidebar Using Offcanvas -->
 
     <!-- Main Content -->
-    <main class="shadow p-3 mb-5 bg-body rounded h-100">
-        <!-- Using Modal for the Add Category -->
-
-        <!-- Modal -->
-        <div class="modal fade" id="add-department" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add a New Department</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Department Name: </span>
-                            <input type="text" class="form-control" aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Total User: </span>
-                            <input type="text" class="form-control" aria-label="Sizing example input"
-                                aria-describedby="inputGroup-sizing-default">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-info">Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Using Modal for the Add Category -->
+    <main class="shadow p-3 mb-5 bg-body rounded">
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12 fw-bold fs-2 pt-2" style="font-family: var(--sidebar-font);">
-                    <ul class="d-flex justify-content-between align-items-center list-unstyled fs-3 fw-bold">
-                        <li>#Departments</li>
-                        <li>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                                data-bs-target="#add-department">
-                                Add Dept.
-                            </button>
-                        </li>
-                    </ul>
+                <div class="col-md-info fs-1 pt-2" style="font-family: var(--sidebar-font);">
+                    Dashboard
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-3 col-sm-6 mb-3">
                     <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color: black">
-                            <div class="card-header font-style">Administration</div>
+                        <a href="category.php" style="text-decoration: none; color: black;">
+                            <div class="card-header font-style">Category</div>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <i class="bi bi-people-fill pe-2"></i><span>Total User 20</span>
+                                    <i class="bi bi-diagram-3-fill p-2"></i><span>Total Field: 7</span>
                                 </h5>
                             </div>
                         </a>
@@ -201,11 +160,11 @@
                 </div>
                 <div class="col-md-3 col-sm-6 mb-3">
                     <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color: black;">
-                            <div class="card-header font-style">CSE</div>
+                        <a href="employee.php" style="text-decoration: none; color: black;">
+                            <div class="card-header font-style">Employee</div>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <i class="bi bi-people-fill pe-2"></i><span>Total User 5</span>
+                                    <i class="bi bi-people-fill pe-2"></i><span>Total User: 40</span>
                                 </h5>
                             </div>
                         </a>
@@ -213,41 +172,125 @@
                 </div>
                 <div class="col-md-3 col-sm-6 mb-3">
                     <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color: black">
-                            <div class="card-header font-style">EEE</div>
+                        <a href="stock-in.php" style="text-decoration: none; color: black;">
+                            <div class="card-header font-style">Stock-in</div>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <i class="bi bi-people-fill pe-2"></i><span>Total User 7</span>
+                                    <i class='bx bxs-check-square pe-2' style='color:#09ff00'></i><span>Total Stock-in:
+                                        0</span>
                                 </h5>
                             </div>
                         </a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color:black">
-                            <div class="card-header font-style">BSTE</div>
+                    <div class="card text-black bg-info mb-3 h-100">
+                        <a href="stock-out.php" style="text-decoration: none; color: black;">
+                            <div class="card-header font-style">Stock-out</div>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <i class="bi bi-people-fill pe-2"></i><span>Total User 7</span>
+                                    <i class='bx bxs-x-circle pe-2' style='color:#ff0000'></i><span>Total Stock-out:
+                                        0</span>
                                 </h5>
                             </div>
                         </a>
                     </div>
                 </div>
             </div>
-
-        </div>
+            <div class="row">
+                <h3 class="pt-3 pb-2 fw-bold">#Recent Request</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-middle table-success table-striped fw-bold">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Dept.</th>
+                            <th scope="col">Req. for</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Shovon Kumar Paul</td>
+                            <td>001</td>
+                            <td>CSE</td>
+                            <td>Pen</td>
+                            <td>Accept</td>
+                            <td>21 Aug 22</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Farhana Haque</td>
+                            <td>002</td>
+                            <td>CSE</td>
+                            <td>Paper</td>
+                            <td>Accept</td>
+                            <td>11 Aug 22</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Minhazul Alam</td>
+                            <td>003</td>
+                            <td>CSE</td>
+                            <td>AC</td>
+                            <td>Accept</td>
+                            <td>20 Aug 22</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Prioti Sarker</td>
+                            <td>004</td>
+                            <td>CSE</td>
+                            <td>AC</td>
+                            <td>Accept</td>
+                            <td>17 Aug 22</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Dr. Mahadi Hasan</td>
+                            <td>001</td>
+                            <td>BBA</td>
+                            <td>Pen</td>
+                            <td>Accept</td>
+                            <td>15 Aug 22</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>Minhazul Alam</td>
+                            <td>003</td>
+                            <td>CSE</td>
+                            <td>Pen</td>
+                            <td>Accept</td>
+                            <td>22 Aug 22</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">7</th>
+                            <td>Nasif Chowdhury</td>
+                            <td>003</td>
+                            <td>Textile</td>
+                            <td>AC</td>
+                            <td>Accept</td>
+                            <td>19 Aug 22</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     </main>
     <!-- Main Content -->
 
+    <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js.map"></script>
-    <script src="../js/dataTables.bootstrap5.min.js"></script>
+    <!-- <script src="../js/dataTables.bootstrap5.min.js"></script> -->
     <script src="../js/jquery-3.5.1.js"></script>
-    <script src="../js/jquery.dataTables.min.js"></script>
+    <!-- <script src="../js/jquery.dataTables.min.js"></script> -->
     <script src="../js/script.js"></script>
 </body>
 
