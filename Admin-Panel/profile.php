@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION["username"])) {
+    header("location:../index.php");
+}
+
+?>
+
 <html lang="en">
 
 <head>
@@ -73,7 +81,10 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="../phpphp">Logout</a></li>
+                            <li>
+                                <?php $_SESSION["username"] ?>
+                                <a class="dropdown-item" href="../logout.php">Logout</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -117,7 +128,8 @@
                         </a>
                     </li>
                     <li class="pt-4 pb-4">
-                        <a href="../index.php" id="logout">
+                        <?php $_SESSION["username"] ?>
+                        <a href="../logout.php" id="logout">
                             <i class="bi bi-box-arrow-left"></i><span>Logout</span></a>
                     </li>
                 </div>
@@ -132,7 +144,7 @@
 
         <!-- update profile info from the database -->
 
-        
+
 
         <!-- update profile info from the database -->
 

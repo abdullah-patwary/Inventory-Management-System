@@ -1,3 +1,35 @@
+<?php
+
+$host        = "localhost";
+$user        = "root";
+$password    = "";
+$db          = "IMS";
+session_start();
+$data = mysqli_connect($host, $user, $password, $db);
+if ($data === false) {
+    die("connection error");
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    $sql    = "select * from login where username= '" . $username . "' AND password= '" . $password . "' ";
+    $result = mysqli_query($data, $sql);
+    $row    = mysqli_fetch_array($result);
+
+    if ($row["usertype"] == "user") {
+        $_SESSION["username"] = $username;
+        header("location:Employee/profile.php");
+    } else if ($row["usertype"] == "admin") {
+        $_SESSION["username"] = $username;
+        header("location:Admin-Panel/admin-dashboard.php");
+    } else {
+        echo '<script> alert("Wrong Info")</script>';
+    }
+}
+?>
+
 <html lang="en">
 
 <head>
@@ -39,16 +71,16 @@
                     <button class="employee"><b>Employee</b></button>
                 </div> -->
             <h3 id="loginAlert">Login to IMS of AKMU</h3>
-            <form name="login" autocomplete="off" action="Admin-Panel/admin-dashboard.php" method="post"
-                onsubmit="return loginCheck()">
+            <form name="login" autocomplete="off" action="#" method="post">
                 <div class="input">
-                    <input type="email" name="email" placeholder="username" id="user-name" value="" required>
+                    <input type="text" name="username" placeholder="username" id="user-name" value="" required>
                 </div>
                 <div class="input">
                     <input type="password" name="password" value="" placeholder="Password" id="password" required>
                 </div>
+
                 <div id="loginError">
-                    Incorrect Info
+                    <?php $error = 'Incorrect Info' ?>
                 </div>
                 <div class="input">
                     <input type="submit" class="login" value="Login">
