@@ -154,64 +154,59 @@
                     </div>
 
                     <!--︾ Update profile info  ︾-->
-                    <form>
+                    <form action="../database/admin-profile.php" method="post">
                         <div class="modal-body">
 
                             <!-- Change Admin Profile -->
                             <div class="input-group mb-3">
                                 <label class="input-group-text" for="inputGroupFile01">Change Profile</label>
-                                <input type="file" class="form-control" id="inputGroupFile01">
+                                <input type="file" class="form-control" id="inputGroupFile01" name="profile">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Institute</span>
                                 <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
+                                    aria-describedby="inputGroup-sizing-default" name="institute">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <label for="exampleInputEmail1" class="form-label">User ID</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
+                                    aria-describedby="emailHelp" name="id">
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
+                                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                             </div>
-                            <!-- <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button> -->
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">E-mail ID</span>
                                 <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
+                                    aria-describedby="inputGroup-sizing-default" name="email">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Telephone</span>
                                 <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
+                                    aria-describedby="inputGroup-sizing-default" name="telephone">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Mobile</span>
                                 <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
+                                    aria-describedby="inputGroup-sizing-default" name="mobile">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Website</span>
                                 <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
+                                    aria-describedby="inputGroup-sizing-default" name="website">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">ERP Website</span>
                                 <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
+                                    aria-describedby="inputGroup-sizing-default" name="erp">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
                                 <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
+                                    aria-describedby="inputGroup-sizing-default" name="address">
                             </div>
                             <!-- Update Social Media -->
                             <div>
@@ -221,28 +216,28 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Facebook Page</span>
                                 <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
+                                    aria-describedby="inputGroup-sizing-default" name="facebook">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Linkedin</span>
                                 <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
+                                    aria-describedby="inputGroup-sizing-default" name="linkedin">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Telegram</span>
                                 <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
+                                    aria-describedby="inputGroup-sizing-default" name="telegram">
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Twitter</span>
                                 <input type="text" class="form-control" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
+                                    aria-describedby="inputGroup-sizing-default" name="twitter">
                             </div>
 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-dark">Update Info</button>
+                            <button type="button" name="update" class="btn btn-dark">Update Info</button>
                         </div>
                     </form>
                     <!--︽ Update Profile info ︽-->
@@ -250,7 +245,7 @@
             </div>
         </div>
 
-        <!-- Pop-up Modal -->
+        <!--︽ Pop-up Modal ︽-->
 
         <div class="container-fluid">
 
