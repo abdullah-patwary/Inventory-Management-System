@@ -155,10 +155,6 @@ if (!isset($_SESSION["username"])) {
                             <span class="input-group-text" id="inputGroup-sizing-default">Department Name: </span>
                             <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Total User: </span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
@@ -173,9 +169,9 @@ if (!isset($_SESSION["username"])) {
             <div class="row">
                 <div class="col-md-12 fw-bold fs-2 pt-2" style="font-family: var(--sidebar-font);">
                     <ul class="d-flex justify-content-between align-items-center list-unstyled fs-3 fw-bold">
-                        <li>#Departments</li>
+                        <li>Departments</li>
                         <li>
-                            <!-- Button trigger modal -->
+                            <!-- trigger modal button-->
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#add-department">
                                 Add Dept.
                             </button>

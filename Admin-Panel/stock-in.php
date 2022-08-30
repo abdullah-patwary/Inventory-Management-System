@@ -1,7 +1,40 @@
 <?php
+// INSERT INTO `stock` (`id`, `name`, `quantity`, `price`, `date`) VALUES ('01', 'Marker', '10', '500', current_timestamp());
+
 session_start();
 if (!isset($_SESSION["username"])) {
     header("location:../index.php");
+}
+
+//connecting the database
+$host        = "localhost";
+$user        = "root";
+$password    = "";
+$db          = "IMS";
+
+$conn = mysqli_connect($host, $user, $password, $db);
+if ($conn === false) {
+    die("connection error");
+}
+
+
+//Data Insert in the Database
+// (isset($_POST['sub']))
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $name = $_POST["name"];
+    $quantity = $_POST["quantity"];
+    $price = $_POST["price"];
+
+    if (!empty($price) && is_numeric($price) && $price != 0 && $price != NULL) {
+        $sql = "INSERT INTO `stock` (`name`, `quantity`, `price`) VALUES ('$name', $quantity, $price)";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            header('Location: /IMS/Admin-Panel/stock-in.php');
+        }
+    } else {
+        $warning = "Input is not correct!!!";
+    }
 }
 
 ?>
@@ -141,14 +174,117 @@ if (!isset($_SESSION["username"])) {
     <!-- Main Content -->
     <main class="shadow p-3 mb-5 bg-body rounded h-100">
 
+        <!-- Using Modal for the Materials -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="stock" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add New Material</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Data insertion form -->
+                    <form action="" method="POST">
+                        <h3 class="ps-2 bg-warning text-center">
+                            <?php
+                            if ($warning != '') {
+                                echo "$warning";
+                            }
+                            ?>
+                        </h3>
+
+                        <div class="modal-body">
+                            <div class="input-group mb-3 d-flex align-items-center">
+                                <label for="name" class="pe-3">Material</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="name">
+                                    <option value="Marker">Marker</option>
+                                    <option value="Duster">Duster</option>
+                                    <option value="Paper">Paper</option>
+                                    <option value="Chair">Chair</option>
+                                    <option value="Table">Table</option>
+                                    <option value="Light">Light</option>
+                                    <option value="Fan">Fan</option>
+                                    <option value="Tissue Paper">Tissue Paper</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3 d-flex align-items-center">
+                                <label for="quantity" class="pe-3">Quantity</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="quantity">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Price: </span>
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="price">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-info" name="sub" id="submit">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Using Modal for the Add Category -->
+
         <div class="container-fluid">
 
             <div class="row">
                 <div class="col-md-12 fw-bold fs-3 pt-2" style="font-family: var(--sidebar-font);">
                     <ul class="d-flex justify-content-between align-items-center list-unstyled fs-3 fw-bold">
-                        <li>#Available Materials</li>
-                        <li><button type="button" class="btn btn-dark">Add New</button></li>
+                        <li>Available Materials</li>
+                        <li>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#stock">
+                                Add New
+                            </button>
+                        </li>
                     </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="table-responsive-md">
+                    <table class="table table-success table-striped fw-bold align-middle table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Date & Time</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <?php
+                            $sql = "SELECT * FROM `stock`";
+                            $result = mysqli_query($conn, $sql);
+                            while ($col = mysqli_fetch_assoc($result)) {
+                                echo " 
+                                    <tr>
+                                        <th scope='row'>" . $col['id'] . "</th>
+                                        <td>" . $col['name'] . "</td>
+                                        <td>" . $col['quantity'] . "</td>
+                                        <td>" . $col['price'] . "</td>
+                                        <td>" . $col['date_time'] . "</td>
+                                        <td>Actions</td>
+                                    </tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -164,6 +300,11 @@ if (!isset($_SESSION["username"])) {
     <script src="../js/jquery-3.5.1.js"></script>
     <script src="../js/jquery.dataTables.min.js"></script>
     <script src="../js/script.js"></script>
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 </body>
 
 </html>
