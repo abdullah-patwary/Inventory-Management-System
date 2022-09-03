@@ -18,9 +18,30 @@ if ($conn === false) {
 }
 
 
+$insert = false;
+$update = false;
+$delete = false;
 //Data Insert in the Database
-// (isset($_POST['sub']))
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+if (isset($_POST['update'])) {
+
+    $sNo = $_POST["snoEdit"];
+    $name = $_POST["updateName"];
+    $quantity = $_POST["updateQuantity"];
+    $price = $_POST["updatePrice"];
+
+    $sql = "UPDATE `stock` SET `name` = '$name' , `quantity` = $quantity, `price` = $price WHERE `stock`.`id` = $sNo";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        $update = true;
+        // header('Location: /IMS/Admin-Panel/stock-in.php');
+
+    }
+}
+
+
+//($_SERVER['REQUEST_METHOD'] == 'POST')
+if (isset($_POST['add'])) {
 
     $name = $_POST["name"];
     $quantity = $_POST["quantity"];
@@ -30,12 +51,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "INSERT INTO `stock` (`name`, `quantity`, `price`) VALUES ('$name', $quantity, $price)";
         $result = mysqli_query($conn, $sql);
         if ($result) {
-            header('Location: /IMS/Admin-Panel/stock-in.php');
+            $insert = true;
+            // header('Location: /IMS/Admin-Panel/stock-in.php');
+
         }
     } else {
         $warning = "Input is not correct!!!";
     }
 }
+
+if (isset($_GET['delete'])) {
+
+    $id = $_GET['delete'];
+
+    $sql = "DELETE FROM `stock` WHERE `stock`.`id` = $id";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        $delete = true;
+        // header('Location: /IMS/Admin-Panel/stock-in.php');
+    }
+}
+
+
+
 
 ?>
 
@@ -46,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Stock-in</title>
 
     <link rel="stylesheet" href="../CSS/boxicons-2.1.2/css/boxicons.min.css">
     <link rel="stylesheet" href="../CSS/boxicons-2.1.2/css/boxicons.css">
@@ -57,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <link rel="stylesheet" href="../CSS/bootstrap.min.css">
     <link rel="stylesheet" href="../CSS/bootstrap.min.css.map">
-    <link rel="stylesheet" href="../CSS/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../CSS/bootstrap/css/dataTable.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../CSS/admin.css">
 
@@ -172,21 +210,65 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Sidebar Using Offcanvas -->
 
     <!-- Main Content -->
-    <main class="shadow p-3 mb-5 bg-body rounded h-100">
+    <main class="shadow p-3 mb-5 bg-body rounded h-auto">
 
-        <!-- Using Modal for the Materials -->
+        <!-- Modal Body -->
 
-        <!-- Modal -->
+        <!-- Edit button using modal -->
+        <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="edit">Update Information</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Data update form -->
+                    <form action="/IMS/Admin-Panel/stock-in.php" method="POST">
+                        <!-- <h3 class="ps-2 bg-warning text-center">
+                            <?php
+                            if ($warning != '') {
+                                echo "$warning";
+                            }
+                            ?>
+                        </h3> -->
+
+                        <input type="hidden" name="snoEdit" id="snoEdit">
+                        <div class="modal-body">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Materials: </span>
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="updateName" id="updateName">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Quantity: </span>
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="updateQuantity" id="updateQuantity">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Price: </span>
+                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="updatePrice" id="updatePrice">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-info" name="update" id="update">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Edit modal -->
+
+        <!-- Modal for Add Stock -->
         <div class="modal fade" id="stock" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add New Material</h5>
+                        <h5 class="modal-title" id="stock">Add New Material</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <!-- Data insertion form -->
-                    <form action="" method="POST">
+                    <form action="/IMS/Admin-Panel/stock-in.php" method="POST">
                         <h3 class="ps-2 bg-warning text-center">
                             <?php
                             if ($warning != '') {
@@ -231,15 +313,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-info" name="sub" id="submit">Add</button>
+                            <button type="submit" class="btn btn-info" name="add" id="add">Add</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <!-- Using Modal for the Add Category -->
+        <!-- Modal body -->
 
         <div class="container-fluid">
+            <div class="row">
+                <?php
+                if ($insert) {
+                    echo "
+                        <div class='alert alert-info alert-dismissible fade show' role='alert'>
+                            <strong>Wonderful!</strong> New Stock Added Successfully!
+                            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                        </div>
+                        ";
+                }
+                ?>
+            </div>
+            <div class="row">
+                <?php
+                if ($update) {
+                    echo "
+                        <div class='alert alert-info alert-dismissible fade show' role='alert'>
+                            <strong>Wonderful!</strong> Information Update Successful!
+                            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                        </div>
+                        ";
+                }
+                ?>
+            </div>
+            <div class="row">
+                <?php
+                if ($delete) {
+                    echo "
+                    <div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                        <strong>Success! </strong> Material Deleted Successfully!
+                        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                    </div>
+                        ";
+                }
+                ?>
+            </div>
 
             <div class="row">
                 <div class="col-md-12 fw-bold fs-3 pt-2" style="font-family: var(--sidebar-font);">
@@ -256,10 +374,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="row">
                 <div class="table-responsive-md">
-                    <table class="table table-success table-striped fw-bold align-middle table-hover text-center">
+                    <table id="myTable" class="table table-success table-striped fw-bold align-middle table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">S.No</th>
+                                <th scope="col">ID No.</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Price</th>
@@ -271,15 +390,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <?php
                             $sql = "SELECT * FROM `stock`";
                             $result = mysqli_query($conn, $sql);
+                            $sNo = 0;
                             while ($col = mysqli_fetch_assoc($result)) {
+                                $sNo++;
                                 echo " 
                                     <tr>
-                                        <th scope='row'>" . $col['id'] . "</th>
+                                        <th scope='row'>" . $sNo . "</th>
+                                        <td>" . $col['id'] . "</td>
                                         <td>" . $col['name'] . "</td>
                                         <td>" . $col['quantity'] . "</td>
                                         <td>" . $col['price'] . "</td>
                                         <td>" . $col['date_time'] . "</td>
-                                        <td>Actions</td>
+                                        <td><button type='button' class='edit btn btn-warning me-2' data-bs-toggle='modal' data-bs-target='#edit' name='edit' id =" . $col['sNo'] . ">Edit</button>
+                                        <button type='button' class='delete btn btn-danger' name='delete' id =" . $col['sNo'] . ">Delete</button></td>
                                     </tr>";
                             }
                             ?>
@@ -295,8 +418,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/bootstrap.bundle.min.js.map"></script>
-    <script src="../js/dataTables.bootstrap5.min.js"></script>
+    <!-- <script src="../js/bootstrap.bundle.min.js.map"></script> -->
+    <!-- <script src="../js/dataTables.bootstrap5.min.js"></script> -->
     <script src="../js/jquery-3.5.1.js"></script>
     <script src="../js/jquery.dataTables.min.js"></script>
     <script src="../js/script.js"></script>
@@ -304,6 +427,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);
         }
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
+
+    <script>
+        // Edit button listener
+        edits = document.getElementsByClassName('edit');
+        Array.from(edits).forEach(element => {
+            element.addEventListener("click", (e) => {
+
+                tr = e.target.parentNode.parentNode;
+                id = tr.getElementsByTagName("td")[0].innerText;
+                name = tr.getElementsByTagName("td")[1].innerText;
+                quantity = tr.getElementsByTagName("td")[2].innerText;
+                price = tr.getElementsByTagName("td")[3].innerText;
+
+                snoEdit.value = id;
+                updateName.value = name;
+                updateQuantity.value = quantity;
+                updatePrice.value = price;
+
+                console.log(id);
+            })
+        })
+
+        // Delete button
+        deletes = document.getElementsByClassName('delete');
+        Array.from(deletes).forEach(element => {
+            element.addEventListener("click", (e) => {
+
+                tr = e.target.parentNode.parentNode;
+                id = tr.getElementsByTagName("td")[0].innerText;
+
+                if (confirm("Confirm to delete?")) {
+                    window.location = `/IMS/Admin-Panel/stock-in.php?delete=${id}`;
+                }
+            })
+        })
     </script>
 </body>
 
