@@ -4,6 +4,40 @@ if (!isset($_SESSION["username"])) {
     header("location:../index.php");
 }
 
+//connecting the database
+$host        = "localhost";
+$user        = "root";
+$password    = "";
+$db          = "IMS";
+
+$insert = false;
+
+$conn = mysqli_connect($host, $user, $password, $db);
+if ($conn === false) {
+    die("connection error");
+}
+
+//Adding new department
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $name = $_POST['name'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $department = $_POST['department'];
+    $email = $_POST['email'];
+    $mobile = $_POST['mobile'];
+    $type = $_POST['type'];
+    $address = $_POST['address'];
+    $profile = $_FILES['profile']['name'];
+
+    $sql = "INSERT INTO `employee` (`name`, `department`, `email`, `username`, `password`, `mobile`, `user_type`, `address`, `profile`) VALUES ('$name', '$department', '$email', '$username', '$password', '$mobile', '$type', '$address', '$profile')";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        $insert = true;
+    }
+}
+
+
 ?>
 
 
@@ -13,7 +47,7 @@ if (!isset($_SESSION["username"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>IMS-Employee</title>
 
     <link rel="stylesheet" href="../CSS/boxicons-2.1.2/css/boxicons.min.css">
     <link rel="stylesheet" href="../CSS/boxicons-2.1.2/css/boxicons.css">
@@ -24,7 +58,7 @@ if (!isset($_SESSION["username"])) {
 
     <link rel="stylesheet" href="../CSS/bootstrap.min.css">
     <link rel="stylesheet" href="../CSS/bootstrap.min.css.map">
-    <link rel="stylesheet" href="../CSS/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../CSS/bootstrap/css/dataTable.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../CSS/admin.css">
 
@@ -139,7 +173,9 @@ if (!isset($_SESSION["username"])) {
     <!-- Sidebar Using Offcanvas -->
 
     <!-- Main Content -->
-    <main class="shadow p-3 mb-5 bg-body rounded h-100">
+    <main class="shadow p-3 mb-5 bg-body rounded h-auto">
+
+
         <!-- Using Modal for the Add Category -->
 
         <!-- Modal -->
@@ -147,25 +183,79 @@ if (!isset($_SESSION["username"])) {
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add a New Department</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add a New User</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Department Name: </span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <!--︾ Add new Employee  ︾-->
+                    <form action="" method="POST">
+                        <div class="modal-body">
+
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupFile01">Change Profile</label>
+                                <input type="file" class="form-control" id="inputGroupFile01" name="profile">
+                            </div>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" aria-describedby="emailHelp" name="name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">User Name</label>
+                                <input type="text" class="form-control" aria-describedby="emailHelp" name="username">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="department" class="form-label">Department</label>
+                                <input type="text" class="form-control" aria-describedby="emailHelp" name="department">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" aria-describedby="emailHelp" name="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="mobile" class="form-label">Mobile</label>
+                                <input type="text" class="form-control" aria-describedby="emailHelp" name="mobile">
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" aria-describedby="emailHelp" name="address">
+                            </div>
+                            <div class="input-group mb-3 d-flex align-items-center">
+                                <label for="types" class="pe-3">User Type</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="type">
+                                    <option value="user">user</option>
+                                    <option value="admin">admin</option>
+                                </select>
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-info">Add</button>
-                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" name="add" class="btn btn-dark" id="add">Add</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
         <!-- Using Modal for the Add Category -->
 
-        <div class="container-fluid">
+        <div class="container-fluid h-auto">
+
+            <div class="row">
+                <?php
+                if ($insert) {
+                    echo "
+                        <div class='alert alert-info alert-dismissible fade show' role='alert'>
+                            <strong>Wonderful!</strong> New Stock Added Successfully!
+                            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                        </div>
+                        ";
+                }
+                ?>
+            </div>
+
             <div class="row">
                 <div class="col-md-12 fw-bold fs-2 pt-2" style="font-family: var(--sidebar-font);">
                     <ul class="d-flex justify-content-between align-items-center list-unstyled fs-3 fw-bold">
@@ -181,68 +271,46 @@ if (!isset($_SESSION["username"])) {
             </div>
 
             <div class="row">
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color: black">
-                            <div class="card-header font-style">Administration</div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <i class="bi bi-people-fill pe-2"></i><span>Total User 20</span>
-                                </h5>
+                <?php
+                $sql = "SELECT * FROM `employee`";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    if ($row["user_type"] == "user") {
+                        // ../images/<?php echo $row['image']
+                ?>
+                        <div class='col-xxxl-2 col-lg-3 col-md-6 col-sm-6 con-xs-12'>
+                            <div class='card' style='width: 18rem;'>
+                                <img src='; ?>' width="250px" height="250px" class='card-img-top' alt='Employee Image'>
+                                <div class='card-body'>
+                                    <h5 class='card-title'><?php echo $row['name']; ?></h5>
+                                    <h5 class='card-title'>ID: <?php echo $row['id']; ?></h5>
+                                    <h5 class='card-title'>Department of <?php echo $row['department']; ?></h5>
+                                    <button class='btn align-center w-100 fs-bold bg-info'>View</button>
+                                </div>
                             </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color: black;">
-                            <div class="card-header font-style">CSE</div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <i class="bi bi-people-fill pe-2"></i><span>Total User 5</span>
-                                </h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color: black">
-                            <div class="card-header font-style">EEE</div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <i class="bi bi-people-fill pe-2"></i><span>Total User 7</span>
-                                </h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-3">
-                    <div class="card bg-info mb-3 h-100">
-                        <a href="#" style="text-decoration: none; color:black">
-                            <div class="card-header font-style">BSTE</div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <i class="bi bi-people-fill pe-2"></i><span>Total User 7</span>
-                                </h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                        </div>
+                <?php
+                    }
+                }
+                ?>
             </div>
 
-        </div>
-        </div>
 
+        </div>
     </main>
     <!-- Main Content -->
 
+    <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/bootstrap.bundle.min.js.map"></script>
-    <script src="../js/dataTables.bootstrap5.min.js"></script>
     <script src="../js/jquery-3.5.1.js"></script>
     <script src="../js/jquery.dataTables.min.js"></script>
     <script src="../js/script.js"></script>
+
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 </body>
 
 </html>

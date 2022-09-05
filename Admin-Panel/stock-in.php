@@ -1,5 +1,4 @@
 <?php
-// INSERT INTO `stock` (`id`, `name`, `quantity`, `price`, `date`) VALUES ('01', 'Marker', '10', '500', current_timestamp());
 
 session_start();
 if (!isset($_SESSION["username"])) {
@@ -418,8 +417,6 @@ if (isset($_GET['delete'])) {
 
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="../js/bootstrap.bundle.min.js.map"></script> -->
-    <!-- <script src="../js/dataTables.bootstrap5.min.js"></script> -->
     <script src="../js/jquery-3.5.1.js"></script>
     <script src="../js/jquery.dataTables.min.js"></script>
     <script src="../js/script.js"></script>

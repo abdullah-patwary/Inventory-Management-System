@@ -14,14 +14,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $sql    = "select * from login where username= '" . $username . "' AND password= '" . $password . "' ";
+    $sql    = "select * from employee where username= '" . $username . "' AND password= '" . $password . "' ";
     $result = mysqli_query($data, $sql);
     $row    = mysqli_fetch_array($result);
 
-    if ($row["usertype"] == "user") {
+    if ($row["user_type"] == "user") {
         $_SESSION["username"] = $username;
         header("location:Employee/profile.php");
-    } else if ($row["usertype"] == "admin") {
+    } else if ($row["user_type"] == "admin") {
         $_SESSION["username"] = $username;
         header("location:Admin-Panel/admin-dashboard.php");
     } else {
