@@ -11,6 +11,7 @@ $password    = "";
 $db          = "IMS";
 
 $insert = false;
+$failed = false;
 
 $conn = mysqli_connect($host, $user, $password, $db);
 if ($conn === false) {
@@ -20,7 +21,12 @@ if ($conn === false) {
 //Adding new department
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $name = $_POST['name'];
+    //Insert Image
+    $filename = $_FILES["profile"]["name"];
+    $tempname = $_FILES["profile"]["tmp_name"];
+    $folder = "./profile/" . $filename;
+
+    $name = $_POST['fname'];
     $username = $_POST['username'];
     $password = $_POST['password'];
     $department = $_POST['department'];
@@ -28,12 +34,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mobile = $_POST['mobile'];
     $type = $_POST['type'];
     $address = $_POST['address'];
-    $profile = $_FILES['profile']['name'];
+    // $profile = $_FILES["profile"]["name"];
 
-    $sql = "INSERT INTO `employee` (`name`, `department`, `email`, `username`, `password`, `mobile`, `user_type`, `address`, `profile`) VALUES ('$name', '$department', '$email', '$username', '$password', '$mobile', '$type', '$address', '$profile')";
+    $sql = "INSERT INTO `employee` (`name`, `department`, `email`, `username`, `password`, `mobile`, `user_type`, `address`, `image`) VALUES ('$name', '$department', '$email', '$username', '$password', '$mobile', '$type', '$address', '$filename')";
+
+    move_uploaded_file($tempname, $folder);
+
     $result = mysqli_query($conn, $sql);
-    if ($result) {
+    if ($result && move_uploaded_file($tempname, $folder)) {
         $insert = true;
+    }
+    else {
+        $failed = true;
     }
 }
 
@@ -187,7 +199,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <!--︾ Add new Employee  ︾-->
-                    <form action="" method="POST">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
 
                             <div class="input-group mb-3">
@@ -196,7 +208,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                             <div class="mb-3">
                                 <label for="name" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" aria-describedby="emailHelp" name="name">
+                                <input type="text" class="form-control" aria-describedby="emailHelp" name="fname">
                             </div>
                             <div class="mb-3">
                                 <label for="username" class="form-label">User Name</label>
@@ -253,13 +265,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
                         ";
                 }
+                if ($failed) {
+                    echo "
+                        <div class='alert alert-info alert-dismissible fade show' role='alert'>
+                            <strong>Failed!</strong> File is not uploaded!
+                            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                        </div>
+                        ";
+                }
+
                 ?>
             </div>
 
             <div class="row">
                 <div class="col-md-12 fw-bold fs-2 pt-2" style="font-family: var(--sidebar-font);">
                     <ul class="d-flex justify-content-between align-items-center list-unstyled fs-3 fw-bold">
-                        <li>Departments</li>
+                        <li>Employees</li>
                         <li>
                             <!-- trigger modal button-->
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#add-department">
@@ -267,6 +288,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </button>
                         </li>
                     </ul>
+                    <hr>
                 </div>
             </div>
 
@@ -280,10 +302,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ?>
                         <div class='col-xxxl-2 col-lg-3 col-md-6 col-sm-6 con-xs-12'>
                             <div class='card' style='width: 18rem;'>
-                                <img src='; ?>' width="250px" height="250px" class='card-img-top' alt='Employee Image'>
+                                <img src="./profile/<?php echo $row['image']; ?>" width="250px" height="250px" class='card-img-top' alt='Employee Image'>
                                 <div class='card-body'>
                                     <h5 class='card-title'><?php echo $row['name']; ?></h5>
-                                    <h5 class='card-title'>ID: <?php echo $row['id']; ?></h5>
+                                    <h5 class='card-title'>ID: <?php echo $row['username']; ?></h5>
                                     <h5 class='card-title'>Department of <?php echo $row['department']; ?></h5>
                                     <button class='btn align-center w-100 fs-bold bg-info'>View</button>
                                 </div>
