@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mobile = $_POST['mobile'];
     $type = $_POST['type'];
     $address = $_POST['address'];
+
     // $profile = $_FILES["profile"]["name"];
 
     $sql = "INSERT INTO `employee` (`name`, `department`, `email`, `username`, `password`, `mobile`, `user_type`, `address`, `image`) VALUES ('$name', '$department', '$email', '$username', '$password', '$mobile', '$type', '$address', '$filename')";
@@ -41,11 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     move_uploaded_file($tempname, $folder);
 
     $result = mysqli_query($conn, $sql);
-    if ($result && move_uploaded_file($tempname, $folder)) {
+    if ($result) {
         $insert = true;
-    }
-    else {
-        $failed = true;
     }
 }
 
@@ -187,8 +185,133 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Main Content -->
     <main class="shadow p-3 mb-5 bg-body rounded h-auto">
 
+        <!-- ---- Modal for Assign Button ---- -->
+        <div class="modal fade" id="specific" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Assign</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
 
-        <!-- Using Modal for the Add Category -->
+                    <!-- Data insertion form -->
+                    <form action="" method="POST">
+                        <!-- <h3 class="ps-2 bg-warning text-center">
+                            <?php
+                            // if ($warning != '') {
+                            //     echo "$warning";
+                            // }
+                            ?>
+                        </h3> -->
+
+                        <div class="modal-body">
+                            <div class="input-group mb-3 d-flex align-items-center">
+                                <label for="name" class="pe-3">Material</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="name">
+                                    <option value="Marker">Marker</option>
+                                    <option value="Duster">Duster</option>
+                                    <option value="Paper">Paper</option>
+                                    <option value="Chair">Chair</option>
+                                    <option value="Table">Table</option>
+                                    <option value="Light">Light</option>
+                                    <option value="Fan">Fan</option>
+                                    <option value="Tissue Paper">Tissue Paper</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3 d-flex align-items-center">
+                                <label for="quantity" class="pe-3">Quantity</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="quantity">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3">
+                                <label for="quantity" class="pe-5">ID</label>
+                                <input type="text" class="form-control ms-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="id">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-info">Assign</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ---- Modal for Assign Button ---- -->
+        <div class="modal fade" id="assign-material" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Assign</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Data insertion form -->
+                    <form action="" method="POST">
+                        <!-- <h3 class="ps-2 bg-warning text-center">
+                            <?php
+                            // if ($warning != '') {
+                            //     echo "$warning";
+                            // }
+                            ?>
+                        </h3> -->
+
+                        <div class="modal-body">
+                            <div class="input-group mb-3 d-flex align-items-center">
+                                <label for="name" class="pe-3">Material</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="name">
+                                    <option value="Marker">Marker</option>
+                                    <option value="Duster">Duster</option>
+                                    <option value="Paper">Paper</option>
+                                    <option value="Chair">Chair</option>
+                                    <option value="Table">Table</option>
+                                    <option value="Light">Light</option>
+                                    <option value="Fan">Fan</option>
+                                    <option value="Tissue Paper">Tissue Paper</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3 d-flex align-items-center">
+                                <label for="quantity" class="pe-3">Quantity</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="quantity">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#specific">
+                                Specific
+                            </button>
+                            <button type="button" class="btn btn-info">Assign to All</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ---- Modal for Assign Button ---- -->
+
+        <!-- Using Modal for the Add Employee -->
 
         <!-- Modal -->
         <div class="modal fade" id="add-department" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -251,7 +374,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             </div>
         </div>
-        <!-- Using Modal for the Add Category -->
+        <!-- Using Modal for the Add Employee -->
 
         <div class="container-fluid h-auto">
 
@@ -279,12 +402,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="row">
                 <div class="col-md-12 fw-bold fs-2 pt-2" style="font-family: var(--sidebar-font);">
-                    <ul class="d-flex justify-content-between align-items-center list-unstyled fs-3 fw-bold">
-                        <li>Employees</li>
+                    <ul class="d-flex list-unstyled fs-3 fw-bold upper-btns">
+                        <li class="flex-grow-1">Employees</li>
+                        <li class="pe-2">
+                            <!-- trigger modal button-->
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#assign-material">
+                                Assign Material
+                            </button>
+                        </li>
                         <li>
                             <!-- trigger modal button-->
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#add-department">
-                                Add Dept.
+                                Add User
                             </button>
                         </li>
                     </ul>
@@ -298,7 +427,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
                     if ($row["user_type"] == "user") {
-                        // ../images/<?php echo $row['image']
                 ?>
                         <div class='col-xxxl-2 col-lg-3 col-md-6 col-sm-6 con-xs-12'>
                             <div class='card' style='width: 18rem;'>

@@ -309,7 +309,7 @@ if (!isset($_SESSION["username"])) {
                             </tr>
                         </tbody>
                     </table>
-                    <h3 class="fw-bold p-2 bg-secondary" style="width: max-content; border-radius: 5px;">Social Media
+                    <h3 class="fw-bold p-2 bg-warning" style="width: max-content; border-radius: 5px;">Social Media
                     </h3>
                     <table class="table table-responsive align-middle table-warning table-striped fw-bold fs-2 table-bordered" style="border-collapse: separate; border-spacing: 5 10;">
                         <tbody class="table-group-divider">
